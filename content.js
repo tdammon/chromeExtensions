@@ -11,4 +11,11 @@ function gotMessage(message,sender,sendResponse){
     }
 }
 
+window.addEventListener('onClick', checkWord);
+
+function checkWord() {
+    let word = window.getSelection();
+    console.log(word);
+}
+
 
