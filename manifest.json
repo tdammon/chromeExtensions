@@ -1,6 +1,6 @@
 {
     "manifest_version": 2,
-    "name": "Web Extension",
+    "name": "Chrome Extension",
     "version": "1.0",
     "content_scripts": [
         {
@@ -10,10 +10,12 @@
             "js":["jquery.js","content.js"]
         }
     ],
+    "permissions": ["tabs"],
     "background": {
         "scripts": ["background.js"]
     },
     "browser_action": {
-        "default_icon": "Frog-1.png"
+        "default_icon": "Frog-1.png",
+        "default_popup": "popup/index.html"
     }
 }

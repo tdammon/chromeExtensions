@@ -1,10 +1,8 @@
-// console.log('background');
 
-// chrome.browserAction.onClicked.addListener(buttonClicked)
+chrome.runtime.onMessage.addListener(receiver);
 
-// function buttonClicked(tab) {
-//     let msg = {
-//         txt: 'hello'
-//     }
-//     chrome.tabs.sendMessage(tab.id,msg);
-// }
+function receiver(request, sender, sendResponse) {
+    
+    console.log(request);
+    word = request;
+}
