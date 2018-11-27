@@ -10,14 +10,7 @@ function readyNow() {
     $('#loginButton').on('click', login)
     $('#sendToAPI').on('click', sendToAPI)
     $('#saveWord').on('click', sendWord)
-    // let bgpage = chrome.extension.getBackgroundPage();
-    // console.log(bgpage)
-    // let word = bgpage.word;
-    // console.log(word)
-    // $('.word').empty();
-    // $('.word').append(word);
-
-    //$('.saveWord').on('click', sendWord())
+    
     
     let target = 'en';
     let source = 'no';
@@ -46,6 +39,7 @@ function readyNow() {
 
 function login() {
     console.log('running')
+    
     $.ajax({
         type: 'POST',
         //url :`https://translation.googleapis.com/language/translate/v2?q=${word}&target=${target}&source=${source}&key=AIzaSyBir7Bz1nj6ckeTAZEw18H4W_kLmPA7BhM`
@@ -67,12 +61,14 @@ function login() {
         }).catch(err => {
             console.log(err)
         })
+    
 }
 
 function sendToAPI() {
     let bgpage = chrome.extension.getBackgroundPage();
     let word = bgpage.word;
     console.log(word)
+    if(word.length> 0 && word.length< 100){
     $.ajax({
         type: 'GET',
         //url :`https://translation.googleapis.com/language/translate/v2?q=${word}&target=${target}&source=${source}&key=AIzaSyBir7Bz1nj6ckeTAZEw18H4W_kLmPA7BhM`
@@ -91,6 +87,7 @@ function sendToAPI() {
         }).catch(err => {
             console.log(err)
         })
+    }
 }
     
 
