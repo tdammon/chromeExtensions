@@ -9,7 +9,7 @@ function readyNow() {
     
     $('#loginButton').on('click', login)
     $('#sendToAPI').on('click', sendToAPI)
-    $('#sendWord').on('click', sendWord)
+    $('#saveWord').on('click', sendWord)
     // let bgpage = chrome.extension.getBackgroundPage();
     // console.log(bgpage)
     // let word = bgpage.word;
