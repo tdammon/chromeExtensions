@@ -11,54 +11,24 @@ function readyNow() {
     $('#sendToAPI').on('click', sendToAPI)
     $('#saveWord').on('click', sendWord)
     
-    
-    let target = 'en';
-    let source = 'no';
-    //  if(word.length> 0 && word.length< 100){
-    //     $.ajax({
-    //         type: 'GET',
-    //         //url :`https://translation.googleapis.com/language/translate/v2?q=${word}&target=${target}&source=${source}&key=AIzaSyBir7Bz1nj6ckeTAZEw18H4W_kLmPA7BhM`
-    //         url: `http://localhost:5000/api/search?q=${word}&target=en&source=no`,
-            
-    //     }).then(response => {
-    //             translated =response.data.translations[0].translatedText;
-    //             $('.word').empty();
-    //             $('.word').append(`${word} |  ${translated}`);
-    //             // if(req.query.q == response.data.data.translations[0].translatedText){
-    //             //     res.send('reverse')
-    //             // } else {
-    //             //     res.send(response.data)
-    //             // }
-    //             return translated;
-    //         }).catch(err => {
-    //             console.log(err)
-    //         })
-    //     }
 }
 
 
 function login() {
-    console.log('running')
+    
     
     $.ajax({
         type: 'POST',
-        //url :`https://translation.googleapis.com/language/translate/v2?q=${word}&target=${target}&source=${source}&key=AIzaSyBir7Bz1nj6ckeTAZEw18H4W_kLmPA7BhM`
-        url: `http://localhost:5000/api/user/login`,
+        url: `https://evening-temple-42477.herokuapp.com/api/user/login?username=${$('#nameInput').val()}&password=${$('#passInput').val()}`,
         data: {
-            username: $('#nameImput').val(),
+            username: $('#nameInput').val(),
             password: $('#passInput').val(),
         }
-    }).then(response => {
-            // let translated =response.data.translations[0].translatedText;
-            // $('.word').empty();
-            // $('.word').append(`${word} |  ${translated}`);
+    }).then(function(response) {
             console.log(response)
-            // if(req.query.q == response.data.data.translations[0].translatedText){
-            //     res.send('reverse')
-            // } else {
-            //     res.send(response.data)
-            // }
-        }).catch(err => {
+            $('nameInput').val('')
+            $('nameInput').val('')
+        }).catch(function(err) {
             console.log(err)
         })
     
@@ -71,24 +41,44 @@ function sendToAPI() {
     if(word.length> 0 && word.length< 100){
     $.ajax({
         type: 'GET',
-        //url :`https://translation.googleapis.com/language/translate/v2?q=${word}&target=${target}&source=${source}&key=AIzaSyBir7Bz1nj6ckeTAZEw18H4W_kLmPA7BhM`
-        url: `http://localhost:5000/api/search?q=${word}&target=en&source=no`,
-        
-    }).then(response => {
+        url: `https://evening-temple-42477.herokuapp.com/api/search/?q=${word}&target=en&source=no`
+        //url: `https://translation.googleapis.com/language/translate/v2?q=${word}&target=en&source=no&key=AIzaSyBir7Bz1nj6ckeTAZEw18H4W_kLmPA7BhM`,       
+    }).then(function(response) {      
             translated =response.data.translations[0].translatedText;
             $('.word').empty();
-            $('.word').append(`${word} |  ${translated}`);
-            // if(req.query.q == response.data.data.translations[0].translatedText){
-            //     res.send('reverse')
-            // } else {
-            //     res.send(response.data)
-            // }
+            $('.word').append(`${word}  |  ${translated}`);
+            
             return translated;
-        }).catch(err => {
-            console.log(err)
+        
+        }).catch(function(err) {
+            
+            // sendReverse();
         })
-    }
+    }  
 }
+
+// function sendReverse() {
+//     let bgpage = chrome.extension.getBackgroundPage();
+//     let word = bgpage.word;
+//     console.log('sending Reverse')
+//     if(word.length> 0 && word.length< 100){
+//     $.ajax({
+//         type: 'GET',
+//         url: `https://translation.googleapis.com/language/translate/v2?q=${word}&target=no&source=en&key=AIzaSyBir7Bz1nj6ckeTAZEw18H4W_kLmPA7BhM`,
+        
+//     }).then(function(response) {
+       
+//             translated =response.data.translations[0].translatedText;
+//             $('.word').empty();
+//             $('.word').append(`${word}  |  ${translated}`);
+            
+//             return translated;
+        
+//         }).catch(function(err) {
+//             console.log(err)
+//         })
+//     }
+// }
     
 
 
@@ -97,21 +87,16 @@ function sendWord() {
     console.log(word, translated)
     $.ajax({
         type: 'POST',
-        url: `http://localhost:5000/flashcards`,
+        url: `https://evening-temple-42477.herokuapp.com/flashcards`,
         data:{
             id: 1,
-            input: word,
+            inputText: word,
             translation: translated,
-            language: 13,
+            language_id: 13,
         }
-    }).then(response => {
-            console.log(response.data)
-            // if(req.query.q == response.data.data.translations[0].translatedText){
-            //     res.send('reverse')
-            // } else {
-            //     res.send(response.data)
-            // }
-        }).catch(err => {
+    }).then(function(response) {
+            console.log(response)
+        }).catch(function(err) {
             console.log(err)
         })
     
