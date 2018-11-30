@@ -14,9 +14,7 @@ function readyNow() {
 }
 
 
-function login() {
-    
-    
+function login() { 
     $.ajax({
         type: 'POST',
         url: `https://evening-temple-42477.herokuapp.com/api/user/login?username=${$('#nameInput').val()}&password=${$('#passInput').val()}`,
@@ -26,12 +24,11 @@ function login() {
         }
     }).then(function(response) {
             console.log(response)
-            $('nameInput').val('')
-            $('nameInput').val('')
+            $('#nameInput').val('')
+            $('#passInput').val('')
         }).catch(function(err) {
             console.log(err)
         })
-    
 }
 
 function sendToAPI() {
@@ -46,7 +43,7 @@ function sendToAPI() {
     }).then(function(response) {      
             translated =response.data.translations[0].translatedText;
             $('.word').empty();
-            $('.word').append(`${word}  |  ${translated}`);
+            $('.word').append(`<h2>${word} &nbsp;&nbsp;| &nbsp;&nbsp;${translated}</h2>`);
             
             return translated;
         
