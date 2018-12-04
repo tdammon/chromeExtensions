@@ -15,7 +15,7 @@
         "scripts": ["background.js"]
     },
     "browser_action": {
-        "default_icon": "Frog-1.png",
+        "default_icon": "DrawingQ.png",
         "default_popup": "popup/index.html"
     }
 }
