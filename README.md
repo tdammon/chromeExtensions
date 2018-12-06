@@ -39,7 +39,7 @@ You can test the translation portion of the extension by highlighting a word on 
 
 ## Authors
 
-* **Trevor** - [Github](https://github.com/tdammon)
+* **Trevor Dammon** - [Github](https://github.com/tdammon)
 
 
 
