@@ -41,5 +41,5 @@ You can test the translation portion of the extension by highlighting a word on 
 
 * **Trevor** - [Github](https://github.com/tdammon)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+
 
