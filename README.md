@@ -26,10 +26,10 @@ You can test the translation portion of the extension by highlighting a word on 
 
 ###Completed Features
 
--[x] Browser Extension accepted by Chrome.
--[x] Loggin to a valid account
--[x] Translation routed through Flash Translate website
--[x] Save words to Flash Translate database
+- [x] Browser Extension accepted by Chrome.
+- [x] Loggin to a valid account
+- [x] Translation routed through Flash Translate website
+- [x] Save words to Flash Translate database
 
 ### Next Steps
 
