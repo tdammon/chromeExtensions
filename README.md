@@ -24,7 +24,7 @@ You can test the translation portion of the extension by highlighting a word on 
 
 * Note: The at this time the extension is hardwired for my current account.  Words will translate from Norwegian to English and saving a word will save it to my personal database. You can test the translation here [Wikipedia](https://no.wikipedia.org/wiki/Darth_Vader).
 
-###Completed Features
+### Completed Features
 
 - [x] Browser Extension accepted by Chrome.
 - [x] Loggin to a valid account
@@ -33,9 +33,9 @@ You can test the translation portion of the extension by highlighting a word on 
 
 ### Next Steps
 
--[ ] Allow two way translation (Norwegian to English / English to Norwegian)
--[ ] Grab settings for the user account that is logged in to allow translations to a choice language
--[ ] Allow users to post translations into thier database
+- [ ] Allow two way translation (Norwegian to English / English to Norwegian)
+- [ ] Grab settings for the user account that is logged in to allow translations to a choice language
+- [ ] Allow users to post translations into thier database
 
 ## Authors
 
